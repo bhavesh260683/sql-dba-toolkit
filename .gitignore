@@ -1,0 +1,21 @@
+# Local SQL tooling
+.vs/
+.vscode/
+*.suo
+*.user
+
+# Output and exports
+output/
+*.csv
+*.xel
+*.bak
+*.trn
+
+# Local configuration and secrets
+.env
+*.local.json
+secrets/
+
+# OS files
+.DS_Store
+Thumbs.db
