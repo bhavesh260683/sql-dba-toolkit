@@ -10,9 +10,13 @@ SELECT
     d.name AS database_name,
     d.recovery_model_desc,
     d.log_reuse_wait_desc,
-    CAST(ls.total_vlf_size_mb AS decimal(18,2)) AS total_log_mb,
+    CAST(ls.total_log_size_mb AS decimal(18,2)) AS total_log_mb,
     CAST(ls.active_log_size_mb AS decimal(18,2)) AS active_log_mb,
-    CAST(ls.active_log_size_mb * 100.0 / NULLIF(ls.total_vlf_size_mb, 0) AS decimal(6,2)) AS active_percent,
+    CAST(
+        ls.active_log_size_mb * 100.0
+        / NULLIF(ls.total_log_size_mb, 0)
+        AS decimal(6,2)
+    ) AS active_percent,
     ls.total_vlf_count,
     ls.active_vlf_count,
     ls.log_backup_time AS last_log_backup_time,
